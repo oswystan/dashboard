@@ -1,0 +1,100 @@
+<html>
+    <head>
+        <title>Dashboard</title>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+            }
+            body {
+                background-color: #e8e8e8;
+            }
+
+            .wrapper {
+                display: grid;
+                grid-template-columns: 200px 1fr;
+            }
+            .header, .footer {
+                grid-column: 1/-1;
+                text-align: center;
+            }
+            .menu {
+                line-height: 60px;
+                font-size: 1.5em;
+                text-align: center;
+                min-height: 400px;
+            }
+            .menu>div {
+                cursor: pointer;
+                color: #444;
+            }
+            .menu>div:hover {
+                background-color: rgba(0, 0, 0, 0.2);
+                color: blue;
+            }
+            .header {
+                background-color: #4385f4;
+                color: #fff;
+                font-size: 2em;
+                line-height: 60px;
+            }
+            .footer {
+                background-color: #6ea0f7;
+                color: #fff;
+                line-height: 70px;
+            }
+            .number-board {
+                display: inline-block;
+                border: solid 1px #ddd;
+                margin:10px;
+                min-width: 200px;
+                background-color: #fff;
+                text-align: center;
+                border-radius: 4px;
+                box-shadow: 0px 3px 5px rgba(0, 0, 0, .2);
+            }
+            .number-board > h1 {
+                font-size: 4em;
+                color: #666;
+                line-height: 3em;
+                padding:0 20px;
+                background-color: rgba(0, 0, 0, .05);
+            }
+            .number-board > label {
+                font-size: 1.5em;
+                display: block;
+                background-color: #4dc3ff;
+                line-height: 3em;
+                color: white;
+                border-radius: 0 0 4px 4px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="header">header</div>
+            <div class="menu">
+                <div>OVERVIEW</div>
+                <div>SERVERS</div>
+                <div>MONITOR</div>
+            </div>
+            <div class="content">
+                <div class="number-board">
+                    <h1>3</h1>
+                    <label>SERVERS</label>
+                </div>
+                <div class="number-board">
+                    <h1>20</h1>
+                    <label>USERS</label>
+                </div>
+                <div class="number-board">
+                    <h1>10999</h1>
+                    <label>REQUESTS</label>
+                </div>
+            </div>
+            <div class="footer">COPYRIGHT (C) WYSTAN</div>
+        </div>
+
+    </body>
+
+</html>

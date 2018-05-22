@@ -1,0 +1,19 @@
+#!/usr/bin/env node
+/*
+ *********************************************************************************
+ *                     Copyright (C) 2018 wystan
+ *
+ *       filename: server.js
+ *    description:
+ *        created: 2018-05-22 23:00:40
+ *         author: wystan
+ *
+ *********************************************************************************
+ */
+
+const express = require('express');
+let app = express();
+app.use(express.static('static'));
+
+app.listen(8080);
+/************************************* END **************************************/
