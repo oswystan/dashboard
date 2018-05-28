@@ -15,7 +15,7 @@
         }
         a {
             text-decoration: none;
-            color: inherit;
+            color: #ff66a3;
         }
         hr {
             border: solid 1px #eee;
@@ -125,7 +125,7 @@
             padding:4px 10px;
         }
         .server a {
-            color: #ff66a3;
+            /*color: #ff66a3;*/
         }
         .server:hover {
             box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
@@ -225,13 +225,25 @@
             display: grid;
             grid-template-columns: 100px 100px 380px 100px 100px 100px 250px 250px 80px;
         }
+        #main_clients div {
+            display: grid;
+            grid-template-columns: 40px 1fr;
+        }
         #main_clients ul:nth-child(even) {
             background-color: #f8f8f8;
         }
-        #main_clients .client_title {
+        #main_clients .logo {
+            display: inline-block;
             color: #666;
             padding: 10px 8px;
-            grid-column: 1/-1;
+            grid-column: 1/2;
+            text-align: right;
+        }
+        #main_clients .title {
+            color: #666;
+            display: inline-block;
+            padding: 10px 0px;
+            grid-column: 2/-1;
         }
         #main_clients .client_header {
             display: inline-block;
@@ -352,10 +364,11 @@
                     </ul>
                 </div>
             </div>
-            <div id="main_clients">
-                <ul>
-                    <h3 class="client_title">CLIENT LIST:</h3>
-                </ul>
+            <div id="main_clients" style="display: none;">
+                <div>
+                    <li class="logo"><i class="material-icons" id="menu_monitor">contact_phone</i></li>
+                    <li class="title"><h3>CLIENT LIST:</h3></li>
+                </div>
                 <ul>
                     <li class="client_header">ID</li>
                     <li class="client_header">SDK</li>
@@ -377,7 +390,7 @@
                     <li class="client_body">1028</li>
                     <li class="client_body">2018-04-23T07:24:17.948Z</li>
                     <li class="client_body">2018-04-23T07:24:17.948Z</li>
-                    <li class="client_body">4</li>
+                    <li class="client_body"><a href="javascript:void(0)">777</a></li>
                 </ul>
 
                 <ul>
@@ -389,7 +402,7 @@
                     <li class="client_body">44</li>
                     <li class="client_body">2017-04-23T07:24:17.948Z</li>
                     <li class="client_body">2018-04-23T07:24:17.948Z</li>
-                    <li class="client_body">222</li>
+                    <li class="client_body"><a href="javascript:void(0)">777</a></li>
                 </ul>
 
                 <ul>
@@ -401,7 +414,7 @@
                     <li class="client_body">44</li>
                     <li class="client_body">2017-04-23T07:24:17.948Z</li>
                     <li class="client_body">2018-04-23T07:24:17.948Z</li>
-                    <li class="client_body">222</li>
+                    <li class="client_body"><a href="javascript:void(0)">777</a></li>
                 </ul>
 
                 <ul>
@@ -413,7 +426,7 @@
                     <li class="client_body">44</li>
                     <li class="client_body">2017-04-23T07:24:17.948Z</li>
                     <li class="client_body">2018-04-23T07:24:17.948Z</li>
-                    <li class="client_body">222</li>
+                    <li class="client_body"><a href="javascript:void(0)">777</a></li>
                 </ul>
 
                 <ul>
@@ -425,7 +438,7 @@
                     <li class="client_body">44</li>
                     <li class="client_body">2017-04-23T07:24:17.948Z</li>
                     <li class="client_body">2018-04-23T07:24:17.948Z</li>
-                    <li class="client_body">222</li>
+                    <li class="client_body"><a href="javascript:void(0)">777</a></li>
                 </ul>
 
                 <ul>
@@ -437,7 +450,7 @@
                     <li class="client_body">44</li>
                     <li class="client_body">2017-04-23T07:24:17.948Z</li>
                     <li class="client_body">2018-04-23T07:24:17.948Z</li>
-                    <li class="client_body">222</li>
+                    <li class="client_body"><a href="javascript:void(0)">777</a></li>
                 </ul>
 
                 <ul>
@@ -449,7 +462,7 @@
                     <li class="client_body">44</li>
                     <li class="client_body">2017-04-23T07:24:17.948Z</li>
                     <li class="client_body">2018-04-23T07:24:17.948Z</li>
-                    <li class="client_body">222</li>
+                    <li class="client_body"><a href="javascript:void(0)">777</a></li>
                 </ul>
 
                 <ul>
@@ -461,7 +474,7 @@
                     <li class="client_body">44</li>
                     <li class="client_body">2017-04-23T07:24:17.948Z</li>
                     <li class="client_body">2018-04-23T07:24:17.948Z</li>
-                    <li class="client_body">222</li>
+                    <li class="client_body"><a href="javascript:void(0)">777</a></li>
                 </ul>
 
                 <ul>
@@ -473,7 +486,7 @@
                     <li class="client_body">44</li>
                     <li class="client_body">2017-04-23T07:24:17.948Z</li>
                     <li class="client_body">2018-04-23T07:24:17.948Z</li>
-                    <li class="client_body">222</li>
+                    <li class="client_body"><a href="javascript:void(0)">777</a></li>
                 </ul>
 
                 <ul>
@@ -485,7 +498,7 @@
                     <li class="client_body">44</li>
                     <li class="client_body">2017-04-23T07:24:17.948Z</li>
                     <li class="client_body">2018-04-23T07:24:17.948Z</li>
-                    <li class="client_body">222</li>
+                    <li class="client_body"><a href="javascript:void(0)">777</a></li>
                 </ul>
             </div>
 
