@@ -1,7 +1,7 @@
 <html>
 <head>
     <title>Dashboard</title>
-    <link href="/thirdparty/iconfont/material-icons.css" rel="stylesheet">
+    <link href="vendor/iconfont/material-icons.css" rel="stylesheet">
     <style>
         * {
             padding: 0;
@@ -71,7 +71,7 @@
         }
 
         #main_overview ul {
-            margin: 30px;
+            margin: 10px;
             list-style: none;
         }
         #main_overview h1 {
@@ -105,13 +105,8 @@
         #main_overview li:last-child, #main_overview h5:last-child {
             border-radius: 0 4px 4px 0;
         }
-
-        .server>h1 {
-            color:#888;
-            text-align: left;
-            padding:4px 10px;
-        }
         .server {
+            min-width: 370px;
             text-align: center;
             border:solid 1px #ddd;
             border-radius: 4px;
@@ -120,6 +115,14 @@
             background-color: #fff;
             box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
             transition: all 0.2s;
+        }
+        .server>h1 {
+            color:#888;
+            text-align: left;
+            padding:4px 10px;
+        }
+        .server a {
+            color: #ff66a3;
         }
         .server:hover {
             box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
@@ -163,6 +166,49 @@
             padding-bottom: 20px;
         }
 
+        /* main monitor */
+        #main_monitor {
+            padding: 10px;
+        }
+        #main_monitor .material-icons {
+            font-size: 1.6em;
+        }
+        .monitor_container {
+            display: inline-grid;
+            border: solid 1px #ddd;
+            background-color: #fff;
+            box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            grid-template-columns: 40px 1fr;
+        }
+        .monitor_container h4, .monitor_container i {
+            color: #666;
+            align-self: center;
+            padding: 10px;
+        }
+        .monitor_container svg, .monitor_container hr {
+            grid-column: 1/-1;
+        }
+        .monitor_container svg {
+            height: 300px;
+            padding: 30px;
+            width: 800px;
+        }
+
+        .trend {
+            stroke: #00cc66;
+            stroke-width: 3px;
+            fill: none;
+        }
+        .x-aixs>path, .y-aixs>path {
+            stroke:#00e6e6;
+            stroke-width: 3px;
+        }
+        .x-aixs line, .y-aixs line {
+            stroke:#00e6e6;
+            stroke-width: 1px;
+        }
+
         /* footer */
         footer {
             height: 60px;
@@ -189,16 +235,16 @@
     <section id="main">
         <div id="main_menu">
             <ul>
-                <li >
+                <li id="menu_overview">
                     <i class="material-icons">bubble_chart</i>
                     <h5>OVERVIEW</h5>
                 </li>
-                <li active>
+                <li id="menu_servers">
                     <i class="material-icons">laptop</i>
                     <h5>SERVERS</h5>
                 </li>
-                <li>
-                    <i class="material-icons">timeline</i>
+                <li id="menu_monitor">
+                    <i class="material-icons" id="menu_monitor">timeline</i>
                     <h5>MONITOR</h5>
                 </li>
             </ul>
@@ -220,7 +266,7 @@
                     </li>
                 </ul>
             </div>
-            <div id="main_servers">
+            <div id="main_servers" style="display: none;">
                 <div class="server">
                     <ul class="server-stat">
                         <li>
@@ -239,11 +285,27 @@
                         </li>
                         <li>
                             <label>OS:</label>
-                            <label>CentOS6.9</label>
+                            <label>CentOS release 6.9 (Final)</label>
                         </li>
                         <li>
                             <label>KERNEL:</label>
-                            <label>linux-4.10.1</label>
+                            <label>2.6.32-642.el6.x86_64</label>
+                        </li>
+                        <li>
+                            <label>CPU-CORES:</label>
+                            <label>4</label>
+                        </li>
+                        <li>
+                            <label>MEMORY:</label>
+                            <label>24446604</label>
+                        </li>
+                        <li>
+                            <label>IP:</label>
+                            <label>0.0.0.0</label>
+                        </li>
+                        <li>
+                            <label>PORT:</label>
+                            <label>8600</label>
                         </li>
                         <li>
                             <label>START-TIME:</label>
@@ -251,10 +313,47 @@
                         </li>
                     </ul>
                 </div>
-            <div id="main_monitor" style="display: none">monitor</div>
+            </div>
+            <div id="main_monitor" style="display: none;">
+                <div id="monitor_server" class="monitor_container">
+                    <i class="material-icons">trending_up</i>
+                    <h4>SERVERS:</h4>
+                    <hr>
+                    <svg id="monitor_svg_server">
+                        <path class="trend"></path>
+                        <g class="x-aixs"></g>
+                        <g class="y-aixs"></g>
+                    </svg>
+                </div>
+                <div id="monitor_client" class="monitor_container">
+                    <i class="material-icons">trending_up</i>
+                    <h4>CLIENTS:</h4>
+                    <hr>
+                    <svg id="monitor_svg_client">
+                        <path class="trend"></path>
+                        <g class="x-aixs"></g>
+                        <g class="y-aixs"></g>
+                    </svg>
+                </div>
+                <div id="monitor_request" class="monitor_container">
+                    <i class="material-icons">trending_up</i>
+                    <h4>REQUESTS:</h4>
+                    <hr>
+                    <svg id="monitor_svg_request">
+                        <path class="trend"></path>
+                        <g class="x-aixs"></g>
+                        <g class="y-aixs"></g>
+                    </svg>
+                </div>
+            </div>
         </div>
     </section>
     <footer>copyright (C) wystan</footer>
 </body>
+
+<script type="text/javascript" src="vendor/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="vendor/d3.min.js"></script>
+<script type="text/javascript" src="js/menu.js"></script>
+<script type="text/javascript" src="js/chart.js"></script>
 
 </html>
