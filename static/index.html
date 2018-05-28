@@ -10,6 +10,9 @@
         li {
             list-style: none;
         }
+        ul {
+            list-style: none;
+        }
         a {
             text-decoration: none;
             color: inherit;
@@ -209,6 +212,41 @@
             stroke-width: 1px;
         }
 
+        /* client info */
+        #main_clients {
+            margin: 10px;
+            display: inline-grid;
+            border: solid 1px #ddd;
+            box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            border-radius: 4px;
+        }
+        #main_clients ul {
+            display: grid;
+            grid-template-columns: 100px 100px 380px 100px 100px 100px 250px 250px 80px;
+        }
+        #main_clients ul:nth-child(even) {
+            background-color: #f8f8f8;
+        }
+        #main_clients .client_title {
+            color: #666;
+            padding: 10px 8px;
+            grid-column: 1/-1;
+        }
+        #main_clients .client_header {
+            display: inline-block;
+            background-color: #00b38f;
+            color: #fff;
+            text-align: center;
+            padding: 10px 4px;
+            /*border: solid 1px #fff;*/
+        }
+        #main_clients .client_body {
+            display: inline-block;
+            color: #666;
+            padding: 8px 4px;
+        }
+
         /* footer */
         footer {
             height: 60px;
@@ -314,6 +352,143 @@
                     </ul>
                 </div>
             </div>
+            <div id="main_clients">
+                <ul>
+                    <h3 class="client_title">CLIENT LIST:</h3>
+                </ul>
+                <ul>
+                    <li class="client_header">ID</li>
+                    <li class="client_header">SDK</li>
+                    <li class="client_header">UA</li>
+                    <li class="client_header">APPID</li>
+                    <li class="client_header">USERID</li>
+                    <li class="client_header">REQUESTS</li>
+                    <li class="client_header">STATTIME</li>
+                    <li class="client_header">LASTMSGTIME</li>
+                    <li class="client_header">STREAMS</li>
+                </ul>
+
+                <ul>
+                    <li class="client_body">3482938</li>
+                    <li class="client_body">v1.0.0</li>
+                    <li class="client_body">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36</li>
+                    <li class="client_body">ares</li>
+                    <li class="client_body">user</li>
+                    <li class="client_body">1028</li>
+                    <li class="client_body">2018-04-23T07:24:17.948Z</li>
+                    <li class="client_body">2018-04-23T07:24:17.948Z</li>
+                    <li class="client_body">4</li>
+                </ul>
+
+                <ul>
+                    <li class="client_body">455664</li>
+                    <li class="client_body">v1.0.3</li>
+                    <li class="client_body">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36</li>
+                    <li class="client_body">ares</li>
+                    <li class="client_body">lilei</li>
+                    <li class="client_body">44</li>
+                    <li class="client_body">2017-04-23T07:24:17.948Z</li>
+                    <li class="client_body">2018-04-23T07:24:17.948Z</li>
+                    <li class="client_body">222</li>
+                </ul>
+
+                <ul>
+                    <li class="client_body">455664</li>
+                    <li class="client_body">v1.0.3</li>
+                    <li class="client_body">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36</li>
+                    <li class="client_body">ares</li>
+                    <li class="client_body">lilei</li>
+                    <li class="client_body">44</li>
+                    <li class="client_body">2017-04-23T07:24:17.948Z</li>
+                    <li class="client_body">2018-04-23T07:24:17.948Z</li>
+                    <li class="client_body">222</li>
+                </ul>
+
+                <ul>
+                    <li class="client_body">455664</li>
+                    <li class="client_body">v1.0.3</li>
+                    <li class="client_body">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36</li>
+                    <li class="client_body">ares</li>
+                    <li class="client_body">lilei</li>
+                    <li class="client_body">44</li>
+                    <li class="client_body">2017-04-23T07:24:17.948Z</li>
+                    <li class="client_body">2018-04-23T07:24:17.948Z</li>
+                    <li class="client_body">222</li>
+                </ul>
+
+                <ul>
+                    <li class="client_body">455664</li>
+                    <li class="client_body">v1.0.3</li>
+                    <li class="client_body">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36</li>
+                    <li class="client_body">ares</li>
+                    <li class="client_body">lilei</li>
+                    <li class="client_body">44</li>
+                    <li class="client_body">2017-04-23T07:24:17.948Z</li>
+                    <li class="client_body">2018-04-23T07:24:17.948Z</li>
+                    <li class="client_body">222</li>
+                </ul>
+
+                <ul>
+                    <li class="client_body">455664</li>
+                    <li class="client_body">v1.0.3</li>
+                    <li class="client_body">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36</li>
+                    <li class="client_body">ares</li>
+                    <li class="client_body">lilei</li>
+                    <li class="client_body">44</li>
+                    <li class="client_body">2017-04-23T07:24:17.948Z</li>
+                    <li class="client_body">2018-04-23T07:24:17.948Z</li>
+                    <li class="client_body">222</li>
+                </ul>
+
+                <ul>
+                    <li class="client_body">455664</li>
+                    <li class="client_body">v1.0.3</li>
+                    <li class="client_body">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36</li>
+                    <li class="client_body">ares</li>
+                    <li class="client_body">lilei</li>
+                    <li class="client_body">44</li>
+                    <li class="client_body">2017-04-23T07:24:17.948Z</li>
+                    <li class="client_body">2018-04-23T07:24:17.948Z</li>
+                    <li class="client_body">222</li>
+                </ul>
+
+                <ul>
+                    <li class="client_body">455664</li>
+                    <li class="client_body">v1.0.3</li>
+                    <li class="client_body">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36</li>
+                    <li class="client_body">ares</li>
+                    <li class="client_body">lilei</li>
+                    <li class="client_body">44</li>
+                    <li class="client_body">2017-04-23T07:24:17.948Z</li>
+                    <li class="client_body">2018-04-23T07:24:17.948Z</li>
+                    <li class="client_body">222</li>
+                </ul>
+
+                <ul>
+                    <li class="client_body">455664</li>
+                    <li class="client_body">v1.0.3</li>
+                    <li class="client_body">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36</li>
+                    <li class="client_body">ares</li>
+                    <li class="client_body">lilei</li>
+                    <li class="client_body">44</li>
+                    <li class="client_body">2017-04-23T07:24:17.948Z</li>
+                    <li class="client_body">2018-04-23T07:24:17.948Z</li>
+                    <li class="client_body">222</li>
+                </ul>
+
+                <ul>
+                    <li class="client_body">455664</li>
+                    <li class="client_body">v1.0.3</li>
+                    <li class="client_body">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36</li>
+                    <li class="client_body">ares</li>
+                    <li class="client_body">lilei</li>
+                    <li class="client_body">44</li>
+                    <li class="client_body">2017-04-23T07:24:17.948Z</li>
+                    <li class="client_body">2018-04-23T07:24:17.948Z</li>
+                    <li class="client_body">222</li>
+                </ul>
+            </div>
+
             <div id="main_monitor" style="display: none;">
                 <div id="monitor_server" class="monitor_container">
                     <i class="material-icons">trending_up</i>
@@ -355,5 +530,6 @@
 <script type="text/javascript" src="vendor/d3.min.js"></script>
 <script type="text/javascript" src="js/menu.js"></script>
 <script type="text/javascript" src="js/chart.js"></script>
+<script type="text/javascript" src="js/server.js"></script>
 
 </html>
