@@ -1,32 +1,39 @@
 (function(){
     let content = $("#main_content");
-    class Overview {
-        constructor(servers = 0, clients = 0, requests = 0) {
-            this.servers = servers;
-            this.clients = clients;
-            this.requests = requests;
-        };
-
-        format(num) {
-            let ret = "";
-            while(num > 0) {
-                if (ret.length > 0) {
-                    ret = num % 1000 + "," + ret;
-                } else {
-                    ret = num % 1000 + "";
-                }
-                num = Math.floor(num/1000);
-            }
-            return ret;
-        };
-    };
-
-    let overview = new Overview(3, 2, 1234);
 
     function render(data) {
-        let html = template("template_main_overview", overview);
+        console.log("done.");
+        if (data.error != 0) {
+            console.error(data);
+            return;
+        }
+        data.data.format = format_number;
+        let html = template("template_main_overview", data.data);
         content.html(html);
     }
 
-    event_bus.on("overview.show", render);
+    function format_number(num) {
+        if (num == 0) {
+            return "0";
+        }
+
+        let ret = "";
+        while(num > 0) {
+            if (ret.length > 0) {
+                ret = num % 1000 + "," + ret;
+            } else {
+                ret = num % 1000 + "";
+            }
+            num = Math.floor(num/1000);
+        }
+        return ret;
+    };
+
+    function get_summary() {
+        let fetcher = new DataFetcher();
+        console.log("start fetch...");
+        fetcher.get_summary(render);
+    }
+
+    event_bus.on("overview.show", get_summary);
 })();
