@@ -1,19 +1,21 @@
 class DataFetcher {
     constructor(url = location.host + "/api") {
         this.url = url;
+        this.requests = 1000;
     }
 
     get_summary(callback) {
         let url = this.url + "/status";
+        this.requests += Math.floor(Math.random()*20000);
 
         let data =
         {
             "error" : 0,
             "desc"  : "",
             "data"  : {
-                "servers"  : 2,
-                "clients"  : 20,
-                "requests" : 5456
+                "servers"  : Math.floor(Math.random()*10+1),
+                "clients"  : Math.floor(Math.random()*100),
+                "requests" : this.requests
             }
         }
 
