@@ -223,7 +223,7 @@
         }
         #main_clients ul {
             display: grid;
-            grid-template-columns: 100px 100px 380px 100px 100px 100px 250px 250px 80px;
+            grid-template-columns: 100px 100px 580px 100px 100px 100px 250px 250px 80px;
         }
         #main_clients div {
             display: grid;
@@ -243,7 +243,6 @@
             color: #666;
             display: inline-block;
             padding: 10px 0px;
-            grid-column: 2/-1;
         }
         #main_clients .client_header {
             display: inline-block;
@@ -267,6 +266,73 @@
             color: white;
             text-align: center;
         }
+
+        /* model diag */
+        #diag_mask {
+            position: fixed;
+            z-index: 100;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: none;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        #diag_mask > div {
+            z-index: 101;
+            background-color: #fff;
+            box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
+            border: solid 1px #ccc;
+            display: inline-block;
+            grid-column: 2/3;
+            align-self: center;
+            border-radius: 10px;
+        }
+        .stream-container {
+            margin: 20px;
+            padding: 10px;
+            border: solid 1px #ccc;
+            border-radius: 4px;
+        }
+        .stream-container ul {
+            display: grid;
+            grid-template-columns: 180px 130px 130px 120px 120px 120px 120px;
+            text-align: left;
+        }
+        .stream-container ul:nth-child(even) {
+            background-color: #f4f4f4;
+        }
+        .stream-container > div {
+            display: grid;
+            grid-template-columns: 40px 1fr;
+        }
+        .stream-container .logo {
+            display: inline-block;
+            color: #666;
+            text-align: right;
+            padding: 8px;
+        }
+        .stream-container .title {
+            color: #666;
+            display: inline-block;
+            text-align: left;
+            align-self: center;
+        }
+        .stream-container .header {
+            background-color: #00b38f;
+            text-align: center;
+            color: #fff;
+            padding: 10px 10px;
+            word-wrap: break-word;
+        }
+        .stream-container .body {
+            padding: 10px 4px;
+            color: #444;
+            display: inline-block;
+            word-wrap: break-word;
+        }
+
     </style>
 </head>
 
@@ -464,42 +530,6 @@
                     <li class="client_body">2018-04-23T07:24:17.948Z</li>
                     <li class="client_body"><a href="javascript:void(0)">777</a></li>
                 </ul>
-
-                <ul>
-                    <li class="client_body">455664</li>
-                    <li class="client_body">v1.0.3</li>
-                    <li class="client_body">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36</li>
-                    <li class="client_body">whatapp</li>
-                    <li class="client_body">lilei</li>
-                    <li class="client_body">44</li>
-                    <li class="client_body">2017-04-23T07:24:17.948Z</li>
-                    <li class="client_body">2018-04-23T07:24:17.948Z</li>
-                    <li class="client_body"><a href="javascript:void(0)">777</a></li>
-                </ul>
-
-                <ul>
-                    <li class="client_body">455664</li>
-                    <li class="client_body">v1.0.3</li>
-                    <li class="client_body">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36</li>
-                    <li class="client_body">whatapp</li>
-                    <li class="client_body">lilei</li>
-                    <li class="client_body">44</li>
-                    <li class="client_body">2017-04-23T07:24:17.948Z</li>
-                    <li class="client_body">2018-04-23T07:24:17.948Z</li>
-                    <li class="client_body"><a href="javascript:void(0)">777</a></li>
-                </ul>
-
-                <ul>
-                    <li class="client_body">455664</li>
-                    <li class="client_body">v1.0.3</li>
-                    <li class="client_body">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36</li>
-                    <li class="client_body">whatapp</li>
-                    <li class="client_body">lilei</li>
-                    <li class="client_body">44</li>
-                    <li class="client_body">2017-04-23T07:24:17.948Z</li>
-                    <li class="client_body">2018-04-23T07:24:17.948Z</li>
-                    <li class="client_body"><a href="javascript:void(0)">777</a></li>
-                </ul>
             </div>
 
             <div id="main_monitor" style="display: none;">
@@ -537,6 +567,113 @@
         </div>
     </section>
     <footer>copyright (C) wystan</footer>
+
+    <div id="diag_mask" align="center">
+        <div id="diag_client_detail">
+            <div id="published_stream" class="stream-container">
+                <div>
+                    <div class="logo"><i class="material-icons" id="menu_monitor">cloud_upload</i></div>
+                    <div class="title"><h5>PUBLISHED STREAMS:</h5></div>
+                </div>
+                <ul>
+                    <li class="header">ID</li>
+                    <li class="header">CLIENT-IP</li>
+                    <li class="header">CLIENT-PORT</li>
+                    <li class="header">SERVER-IP</li>
+                    <li class="header">SERVER-PORT</li>
+                    <li class="header">AUDIO-CODEC</li>
+                    <li class="header">VIDEO-CODEC</li>
+                </ul>
+                <ul>
+                    <li class="body">whatapp:user:conf:live</li>
+                    <li class="body">10.1.1.1</li>
+                    <li class="body">48478</li>
+                    <li class="body">10.2.2.1</li>
+                    <li class="body">38474</li>
+                    <li class="body">isac/16000</li>
+                    <li class="body">h.264</li>
+                </ul>
+                <ul>
+                    <li class="body">whatapp:user:conf:live</li>
+                    <li class="body">10.1.1.1</li>
+                    <li class="body">48478</li>
+                    <li class="body">10.2.2.1</li>
+                    <li class="body">38474</li>
+                    <li class="body">isac/16000</li>
+                    <li class="body">h.264</li>
+                </ul>
+                <ul>
+                    <li class="body">whatapp:user:conf:live</li>
+                    <li class="body">10.1.1.1</li>
+                    <li class="body">48478</li>
+                    <li class="body">10.2.2.1</li>
+                    <li class="body">38474</li>
+                    <li class="body">isac/16000</li>
+                    <li class="body">h.264</li>
+                </ul>
+                <ul>
+                    <li class="body">whatapp:user:conf:live</li>
+                    <li class="body">10.1.1.1</li>
+                    <li class="body">48478</li>
+                    <li class="body">10.2.2.1</li>
+                    <li class="body">38474</li>
+                    <li class="body">isac/16000</li>
+                    <li class="body">h.264</li>
+                </ul>
+            </div>
+            <div id="subscribed_stream" class="stream-container">
+                <div>
+                    <div class="logo"><i class="material-icons" id="menu_monitor">cloud_download</i></div>
+                    <div class="title"><h5>SUBSCRIBED STREAMS:</h5></div>
+                </div>
+                <ul>
+                    <li class="header">ID</li>
+                    <li class="header">CLIENT-IP</li>
+                    <li class="header">CLIENT-PORT</li>
+                    <li class="header">SERVER-IP</li>
+                    <li class="header">SERVER-PORT</li>
+                    <li class="header">AUDIO-CODEC</li>
+                    <li class="header">VIDEO-CODEC</li>
+                </ul>
+                <ul>
+                    <li class="body">whatapp:user:conf:live</li>
+                    <li class="body">10.1.1.1</li>
+                    <li class="body">48478</li>
+                    <li class="body">10.2.2.1</li>
+                    <li class="body">38474</li>
+                    <li class="body">isac/16000</li>
+                    <li class="body">h.264</li>
+                </ul>
+                <ul>
+                    <li class="body">whatapp:user:conf:live</li>
+                    <li class="body">10.1.1.1</li>
+                    <li class="body">48478</li>
+                    <li class="body">10.2.2.1</li>
+                    <li class="body">38474</li>
+                    <li class="body">isac/16000</li>
+                    <li class="body">h.264</li>
+                </ul>
+                <ul>
+                    <li class="body">whatapp:user:conf:live</li>
+                    <li class="body">10.1.1.1</li>
+                    <li class="body">48478</li>
+                    <li class="body">10.2.2.1</li>
+                    <li class="body">38474</li>
+                    <li class="body">isac/16000</li>
+                    <li class="body">h.264</li>
+                </ul>
+                <ul>
+                    <li class="body">whatapp:user:conf:live</li>
+                    <li class="body">10.1.1.1</li>
+                    <li class="body">48478</li>
+                    <li class="body">10.2.2.1</li>
+                    <li class="body">38474</li>
+                    <li class="body">isac/16000</li>
+                    <li class="body">h.264</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </body>
 
 <script type="text/javascript" src="vendor/jquery-3.2.1.min.js"></script>
