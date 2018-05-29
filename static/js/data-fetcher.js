@@ -38,7 +38,7 @@ class DataFetcher {
 
         setTimeout(()=>{
             callback(data);
-        }, 500);
+        }, 50);
     }
 
     get_server(sid, callback) {
@@ -62,7 +62,7 @@ class DataFetcher {
 
         setTimeout(()=>{
             callback(data);
-        }, 500);
+        }, 50);
     }
     list_client(sid, callback) {
         let data =

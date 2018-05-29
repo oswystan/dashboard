@@ -26,6 +26,7 @@
         jq_main.hide();
         jq_main_server.show();
         menu_active(this);
+        event_bus.aemit("server.list");
     });
     jq_menu_monitor.unbind('click').click(function(){
         console.log("show monitor");
