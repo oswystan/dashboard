@@ -24,6 +24,12 @@
         return false;
     });
 
+    $(document).keyup(function(e){
+        if (e.which == 27) {
+            show_diag(false);
+        }
+    });
+
     jq_client.unbind("click").click(function(){
         console.log("show client detail");
         jq_main_server.hide();

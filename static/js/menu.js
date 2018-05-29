@@ -18,6 +18,8 @@
         jq_main.hide();
         jq_main_overview.show();
         menu_active(this);
+
+        event_bus.aemit("overview.show");
     });
     jq_menu_server.unbind('click').click(function(){
         console.log("show server");
