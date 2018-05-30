@@ -21,7 +21,6 @@
 
     function get_server() {
         if (server_id.length == 0) {
-            event_bus.emit("process.done");
             console.log("get_server done");
             server_list = [];
             servers.forEach((val)=>{
@@ -43,10 +42,8 @@
 
     function list_server() {
         console.log("list server");
-        event_bus.emit("process.start", "start get servers...");
         fetcher.list_server((data)=>{
             if (data.error != 0) {
-                event_bus.emit("process.done", "error: "+data.desc);
                 console.error(data);
                 return;
             }
@@ -60,14 +57,12 @@
                 get_server();
             } else {
                 console.log("no servers, done");
-                event_bus.aemit("process.done");
             }
         });
     }
 
     function get_client(sid) {
         if (client_id.length == 0) {
-            event_bus.emit("process.done");
             console.log("get client done");
             client_list = [];
             clients.forEach((val)=>{
