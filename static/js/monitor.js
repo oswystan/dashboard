@@ -5,13 +5,13 @@
     let server_data = [];
     let request_data = [];
     let client_data = [];
-    let server_threshod = {min: Number.MAX_VALUE, max: 0};
-    let client_threshod = {min: Number.MAX_VALUE, max: 0};
-    let request_threshod = {min: Number.MAX_VALUE, max: 0};
+    let server_threshod = {min: 0, max: 0};
+    let client_threshod = {min: 0, max: 0};
+    let request_threshod = {min: 0, max: 0};
     let last_req_cnt = 0;
 
     let _max_val = 0;
-    let _min_val = Number.MAX_VALUE;
+    let _min_val = 0;
     function draw(eleID, data, threshold) {
         let max_date = d3.max(data, function(d) { return d.date; });
         let min_date = d3.min(data, function(d) { return d.date; });
@@ -53,7 +53,7 @@
 
         let html = template("template_main_monitor");
         content.html(html);
-        setTimeout(get_summary, 1000);
+        setTimeout(get_summary, 5000);
         draw("#monitor_server", server_data, server_threshod);
         draw("#monitor_client", client_data, client_threshod);
         draw("#monitor_request", request_data, request_threshod);
@@ -104,6 +104,7 @@
         server_data = [];
         client_data = [];
         request_data = [];
+        last_req_cnt = 0;
         setTimeout(get_summary, 0);
     }
     function hideall() {
