@@ -1,4 +1,5 @@
 (function(){
+    let content = $("#main_content");
     let fetcher = new DataFetcher();
     let jq_main_server = $("#main_servers");
     let jq_client = $(".server-stat a");
@@ -9,6 +10,7 @@
 
     let servers = new Map();
     let server_id = [];
+    let server_list = [];
 
     function show_diag(isShow) {
         if (isShow) {
@@ -22,6 +24,11 @@
         if (server_id.length == 0) {
             event_bus.emit("process.done");
             console.log("get_server done");
+            server_list = [];
+            servers.forEach((val)=>{
+                server_list.push(val);
+            });
+            render_server();
             return;
         }
         let sid = server_id.pop();
@@ -56,6 +63,11 @@
                 event_bus.aemit("process.done");
             }
         });
+    }
+
+    function render_server() {
+        let html = template("template_main_server", {format:format_number, data: server_list});
+        content.html(html);
     }
 
     // jq_stream.unbind('click').click(()=>{

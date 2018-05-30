@@ -23,8 +23,8 @@
     });
     jq_menu_server.unbind('click').click(function(){
         console.log("show server");
-        jq_main.hide();
-        jq_main_server.show();
+        // jq_main.hide();
+        // jq_main_server.show();
         menu_active(this);
         event_bus.aemit("server.list");
     });

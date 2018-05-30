@@ -366,73 +366,8 @@
             </ul>
         </div>
         <div id="main_content">
-            <script type="text/html" id="template_main_overview">
-            <div id="main_overview">
-                <ul>
-                    <li>
-                        <h1>{{format(servers)}}</h1>
-                        <h5>SERVERS</h5>
-                    </li>
-                    <li>
-                        <h1>{{format(clients)}}</h1>
-                        <h5>CLIENTS</h5>
-                    </li>
-                    <li>
-                        <h1>{{format(requests)}}</h1>
-                        <h5>REQUESTS</h5>
-                    </li>
-                </ul>
-            </div>
-            </script>
 
-            <div id="main_servers" style="display: none;">
-                <div class="server">
-                    <ul class="server-stat">
-                        <li>
-                            <h1><a href="javascript:void(0)">102</a></h1>
-                            <h5>CLIENTS</h5>
-                        </li>
-                        <li>
-                            <h1>9,998,390</h1>
-                            <h5>REQUESTS</h5>
-                        </li>
-                    </ul>
-                    <ul class="server-detail">
-                        <li>
-                            <label>HOST:</label>
-                            <label>ali-centos-001</label>
-                        </li>
-                        <li>
-                            <label>OS:</label>
-                            <label>CentOS release 6.9 (Final)</label>
-                        </li>
-                        <li>
-                            <label>KERNEL:</label>
-                            <label>2.6.32-642.el6.x86_64</label>
-                        </li>
-                        <li>
-                            <label>CPU-CORES:</label>
-                            <label>4</label>
-                        </li>
-                        <li>
-                            <label>MEMORY:</label>
-                            <label>24446604</label>
-                        </li>
-                        <li>
-                            <label>IP:</label>
-                            <label>0.0.0.0</label>
-                        </li>
-                        <li>
-                            <label>PORT:</label>
-                            <label>8600</label>
-                        </li>
-                        <li>
-                            <label>START-TIME:</label>
-                            <label>2018-01-10T12:20:39.003Z</label>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+
             <div id="main_clients" style="display: none;">
                 <div>
                     <li class="logo"><i class="material-icons" id="menu_monitor">supervisor_account</i></li>
@@ -570,6 +505,79 @@
         </div>
     </section>
     <footer>copyright (C) wystan</footer>
+
+    <script type="text/html" id="template_main_overview">
+    <div id="main_overview">
+        <ul>
+            <li>
+                <h1>{{format(servers)}}</h1>
+                <h5>SERVERS</h5>
+            </li>
+            <li>
+                <h1>{{format(clients)}}</h1>
+                <h5>CLIENTS</h5>
+            </li>
+            <li>
+                <h1>{{format(requests)}}</h1>
+                <h5>REQUESTS</h5>
+            </li>
+        </ul>
+    </div>
+    </script>
+
+    <script type="text/html" id="template_main_server">
+    <div id="main_servers">
+        {{each data as val}}
+        <div class="server">
+            <ul class="server-stat">
+                <li>
+                    <h1><a href="javascript:void(0)">{{format(val.total_client)}}</a></h1>
+                    <h5>CLIENTS</h5>
+                </li>
+                <li>
+                    <h1>{{format(val.total_request)}}</h1>
+                    <h5>REQUESTS</h5>
+                </li>
+            </ul>
+            <ul class="server-detail">
+                <li>
+                    <label>HOST:</label>
+                    <label>{{val.host}}</label>
+                </li>
+                <li>
+                    <label>OS:</label>
+                    <label>{{val.os}}</label>
+                </li>
+                <li>
+                    <label>KERNEL:</label>
+                    <label>{{val.kernel}}</label>
+                </li>
+                <li>
+                    <label>CPU-CORES:</label>
+                    <label>{{val.cpu_cores}}</label>
+                </li>
+                <li>
+                    <label>MEMORY:</label>
+                    <label>{{val.memory}}B</label>
+                </li>
+                <li>
+                    <label>IP:</label>
+                    <label>{{val.server_ip}}</label>
+                </li>
+                <li>
+                    <label>PORT:</label>
+                    <label>{{val.server_port}}</label>
+                </li>
+                <li>
+                    <label>START-TIME:</label>
+                    <label>{{val.start_time}}</label>
+                </li>
+            </ul>
+        </div>
+        {{/each}}
+    </div>
+    </script>
+
 
     <div id="diag_mask" align="center">
         <div id="diag_client_detail">

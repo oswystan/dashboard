@@ -48,13 +48,14 @@ class DataFetcher {
             "desc"  : "",
             "data"  :
             {
-                "os"            : "CentOS release 6.9 (Final)",
+                "host"          : "aliyun-bj-server-1",
+                "os"            : "CentOS release 6.9",
                 "kernel"        : "2.6.32-642.el6.x86_64",
                 "memory"        : 24446604,
                 "cpu_cores"     : 8,
                 "start_time"    : "2018-04-23T07:24:17.948Z",
-                "total_client"  : 23,
-                "total_request" : 334455,
+                "total_client"  : Math.floor(Math.random()*100),
+                "total_request" : Math.floor(Math.random()*10000),
                 "server_ip"     : "10.1.1.1",
                 "server_port"   : 7788
             }
