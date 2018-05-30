@@ -32,7 +32,7 @@ class DataFetcher {
             "data"  :
             [
                 { "id" : "cae826838a478ae7b7d50be40cb0c31a" },
-                { "id" : "e54573302cf29ab577fc7c09963673a0" },
+                { "id" : "e54573302cf29ab577fc7c09963673a0" }
             ]
         };
 
@@ -48,16 +48,17 @@ class DataFetcher {
             "desc"  : "",
             "data"  :
             {
+                "id"            : sid,
                 "host"          : "aliyun-bj-server-1",
                 "os"            : "CentOS release 6.9",
                 "kernel"        : "2.6.32-642.el6.x86_64",
                 "memory"        : 24446604,
-                "cpu_cores"     : 8,
+                "cpu_cores"     : Math.floor(Math.random()*8)+1,
                 "start_time"    : "2018-04-23T07:24:17.948Z",
                 "total_client"  : Math.floor(Math.random()*100),
                 "total_request" : Math.floor(Math.random()*10000),
                 "server_ip"     : "10.1.1.1",
-                "server_port"   : 7788
+                "server_port"   : Math.floor(Math.random()*10000)
             }
         };
 
@@ -94,45 +95,45 @@ class DataFetcher {
             "desc"  : "",
             "data"  :
             {
-                "id"            : 9449239,
+                "id"            : cid,
                 "sdk_version"   : "v1.0",
                 "user_agent"    : "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36",
                 "start_time"    : "2018-04-23T07:24:17.948Z",
                 "last_msg_time" : "2018-04-23T07:25:17.948Z",
-                "total_request" : 100,
-                "app_id"        : "",
-                "user_id"       : "",
+                "total_request" : Math.floor(Math.random()*10000)+1,
+                "app_id"        : "whatapp",
+                "user_id"       : "user-" + Math.floor(Math.random()*100),
                 "streams"       :
                 [
                     {
                         "type"        : "publish",
-                        "client_ip"   : "",
+                        "client_ip"   : "10.1.1.1",
                         "client_port" : 9999,
-                        "server_ip"   : "",
+                        "server_ip"   : "10.1.1.2",
                         "server_port" : 8888,
-                        "audio_codec" : "",
-                        "video_codec" : "",
+                        "audio_codec" : "isac/16000",
+                        "video_codec" : "H.264",
                         "id_group"    :
                         {
-                            "appId"  : "",
-                            "userId" : "",
-                            "confId" : "",
-                            "liveId" : "",
+                            "appId"  : "whatapp",
+                            "userId" : "user",
+                            "confId" : "conf",
+                            "liveId" : "live",
                         }
                     },{
                         "type"        : "subscribe",
-                        "client_ip"   : "",
+                        "client_ip"   : "10.1.1.1",
                         "client_port" : 9999,
-                        "server_ip"   : "",
+                        "server_ip"   : "10.1.1.2",
                         "server_port" : 8888,
-                        "audio_codec" : "",
-                        "video_codec" : "",
+                        "audio_codec" : "isac/16000",
+                        "video_codec" : "H.264",
                         "id_group"    :
                         {
-                            "appId"  : "",
-                            "userId" : "",
-                            "confId" : "",
-                            "liveId" : "",
+                            "appId"  : "whatapp",
+                            "userId" : "user1",
+                            "confId" : "conf",
+                            "liveId" : "live-02",
                         }
                     }
                 ]
@@ -141,7 +142,7 @@ class DataFetcher {
 
         setTimeout(()=>{
             callback(data);
-        }, 500);
+        }, 10);
     }
 };
 
