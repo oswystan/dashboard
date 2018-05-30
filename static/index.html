@@ -193,9 +193,9 @@
             grid-column: 1/-1;
         }
         .monitor_container svg {
-            height: 300px;
-            padding: 30px;
-            width: 800px;
+            height: 200px;
+            padding: 80px;
+            width: 600px;
         }
 
         .trend {
@@ -366,38 +366,7 @@
             </ul>
         </div>
         <div id="main_content">
-            <div id="main_monitor" style="display: none;">
-                <div id="monitor_server" class="monitor_container">
-                    <i class="material-icons">trending_up</i>
-                    <h4>SERVERS:</h4>
-                    <hr>
-                    <svg id="monitor_svg_server">
-                        <path class="trend"></path>
-                        <g class="x-aixs"></g>
-                        <g class="y-aixs"></g>
-                    </svg>
-                </div>
-                <div id="monitor_client" class="monitor_container">
-                    <i class="material-icons">trending_up</i>
-                    <h4>CLIENTS:</h4>
-                    <hr>
-                    <svg id="monitor_svg_client">
-                        <path class="trend"></path>
-                        <g class="x-aixs"></g>
-                        <g class="y-aixs"></g>
-                    </svg>
-                </div>
-                <div id="monitor_request" class="monitor_container">
-                    <i class="material-icons">trending_up</i>
-                    <h4>REQUESTS:</h4>
-                    <hr>
-                    <svg id="monitor_svg_request">
-                        <path class="trend"></path>
-                        <g class="x-aixs"></g>
-                        <g class="y-aixs"></g>
-                    </svg>
-                </div>
-            </div>
+
         </div>
     </section>
     <footer>copyright (C) wystan</footer>
@@ -569,6 +538,41 @@
     </div>
     </script>
 
+    <script type="text/html" id="template_main_monitor">
+    <div id="main_monitor">
+        <div id="monitor_server" class="monitor_container">
+            <i class="material-icons">trending_up</i>
+            <h4>SERVERS:</h4>
+            <hr>
+            <svg id="monitor_svg_server">
+                <path class="trend"></path>
+                <g class="x-aixs"></g>
+                <g class="y-aixs"></g>
+            </svg>
+        </div>
+        <div id="monitor_client" class="monitor_container">
+            <i class="material-icons">trending_up</i>
+            <h4>CLIENTS:</h4>
+            <hr>
+            <svg id="monitor_svg_client">
+                <path class="trend"></path>
+                <g class="x-aixs"></g>
+                <g class="y-aixs"></g>
+            </svg>
+        </div>
+        <div id="monitor_request" class="monitor_container">
+            <i class="material-icons">trending_up</i>
+            <h4>REQUESTS:</h4>
+            <hr>
+            <svg id="monitor_svg_request">
+                <path class="trend"></path>
+                <g class="x-aixs"></g>
+                <g class="y-aixs"></g>
+            </svg>
+        </div>
+    </div>
+    </script>
+
     <div id="diag_mask" align="center">
     </div>
 </body>
@@ -581,7 +585,7 @@
 <script type="text/javascript" src="js/data-fetcher.js"></script>
 <script type="text/javascript" src="js/menu.js"></script>
 <script type="text/javascript" src="js/overview.js"></script>
-<script type="text/javascript" src="js/chart.js"></script>
+<script type="text/javascript" src="js/monitor.js"></script>
 <script type="text/javascript" src="js/server.js"></script>
 
 </html>

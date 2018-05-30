@@ -15,24 +15,21 @@
 
     jq_menu_overview.unbind('click').click(function(){
         console.log("show overview");
-        jq_main.hide();
-        jq_main_overview.show();
+        event_bus.aemit("hideall");
         menu_active(this);
-
         event_bus.aemit("overview.show");
     });
     jq_menu_server.unbind('click').click(function(){
         console.log("show server");
-        // jq_main.hide();
-        // jq_main_server.show();
+        event_bus.aemit("hideall");
         menu_active(this);
         event_bus.aemit("server.list");
     });
     jq_menu_monitor.unbind('click').click(function(){
         console.log("show monitor");
-        jq_main.hide();
-        jq_main_monitor.show();
+        event_bus.aemit("hideall");
         menu_active(this);
+        event_bus.aemit("monitor.show");
     });
 
 })();

@@ -1,12 +1,12 @@
 class DataFetcher {
     constructor(url = location.host + "/api") {
         this.url = url;
-        this.requests = 1000;
+        this.requests = 0;
     }
 
     get_summary(callback) {
         let url = this.url + "/status";
-        this.requests += Math.floor(Math.random()*20000);
+        this.requests += Math.floor(Math.random()*1000);
 
         let data =
         {
@@ -119,6 +119,21 @@ class DataFetcher {
                             "userId" : "user",
                             "confId" : "conf",
                             "liveId" : "live",
+                        }
+                    },{
+                        "type"        : "subscribe",
+                        "client_ip"   : "10.1.1.1",
+                        "client_port" : 9999,
+                        "server_ip"   : "10.1.1.2",
+                        "server_port" : 8888,
+                        "audio_codec" : "isac/16000",
+                        "video_codec" : "H.264",
+                        "id_group"    :
+                        {
+                            "appId"  : "whatapp",
+                            "userId" : "user1",
+                            "confId" : "conf",
+                            "liveId" : "live-02",
                         }
                     },{
                         "type"        : "subscribe",
