@@ -5,9 +5,9 @@
     let server_data = [];
     let request_data = [];
     let client_data = [];
-    let server_threshod = {min: 0, max: 0};
-    let client_threshod = {min: 0, max: 0};
-    let request_threshod = {min: 0, max: 0};
+    let server_threshod = new Threshold();
+    let client_threshod = new Threshold();
+    let request_threshod = new Threshold();
     let last_req_cnt = 0;
 
     let _max_val = 0;
@@ -105,6 +105,9 @@
         client_data = [];
         request_data = [];
         last_req_cnt = 0;
+        request_threshod.reset();
+        client_threshod.reset();
+        server_threshod.reset();
         setTimeout(get_summary, 0);
     }
     function hideall() {
