@@ -227,7 +227,7 @@
         }
         #main_clients div {
             display: grid;
-            grid-template-columns: 40px 1fr;
+            grid-template-columns: 40px 1fr 40px;
         }
         #main_clients ul:nth-child(even) {
             background-color: #f8f8f8;
@@ -236,8 +236,13 @@
             display: inline-block;
             color: #666;
             padding: 10px 8px;
-            grid-column: 1/2;
+            /*grid-column: 1/2;*/
             text-align: right;
+        }
+        #btn_client_refresh:hover {
+            cursor: pointer;
+            color: #00b38f;
+            transition: all 0.3s ease;
         }
         #main_clients .title {
             color: #666;
@@ -450,8 +455,9 @@
     <script type="text/html" id="template_main_client">
     <div id="main_clients">
         <div>
-            <li class="logo"><i class="material-icons" id="menu_monitor">supervisor_account</i></li>
+            <li class="logo"><i class="material-icons">supervisor_account</i></li>
             <li class="title"><h3>CLIENT LIST:</h3></li>
+            <li class="logo"><i class="material-icons" id="btn_client_refresh">refresh</i></li>
         </div>
         <ul>
             <li class="client_header">ID</li>
@@ -586,7 +592,7 @@
 <script type="text/javascript" src="vendor/art_template.js"></script>
 <script type="text/javascript" src="js/emitter.js"></script>
 <script type="text/javascript" src="js/utils.js"></script>
-<script type="text/javascript" src="js/data-fetcher.js"></script>
+<script type="text/javascript" src="js/mock-fetcher.js"></script>
 <script type="text/javascript" src="js/menu.js"></script>
 <script type="text/javascript" src="js/overview.js"></script>
 <script type="text/javascript" src="js/monitor.js"></script>

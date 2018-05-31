@@ -123,6 +123,10 @@
                 render_stream(clients.get(cid).streams);
             }
         });
+
+        $("#btn_client_refresh").unbind('click').click(()=>{
+            list_client(sid);
+        });
     }
 
     function render_stream(data) {
