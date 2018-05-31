@@ -58,7 +58,8 @@ class DataFetcher {
                 "total_client"  : Math.floor(Math.random()*100),
                 "total_request" : Math.floor(Math.random()*10000),
                 "server_ip"     : "10.1.1.1",
-                "server_port"   : Math.floor(Math.random()*10000)
+                "server_port"   : Math.floor(Math.random()*10000),
+                "pid"           : Math.floor(Math.random()*1000) + 100
             }
         };
 
